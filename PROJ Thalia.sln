@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROJ Thalia", "Assembly-CSharp.csproj", "{BC028A8B-3850-65FE-64A2-1D7559F000A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROJ Thalia", "Assembly-CSharp-Editor.csproj", "{734FD927-6DD5-00C6-7A12-75A73F46F6F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC028A8B-3850-65FE-64A2-1D7559F000A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC028A8B-3850-65FE-64A2-1D7559F000A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC028A8B-3850-65FE-64A2-1D7559F000A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC028A8B-3850-65FE-64A2-1D7559F000A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{734FD927-6DD5-00C6-7A12-75A73F46F6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734FD927-6DD5-00C6-7A12-75A73F46F6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734FD927-6DD5-00C6-7A12-75A73F46F6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734FD927-6DD5-00C6-7A12-75A73F46F6F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
