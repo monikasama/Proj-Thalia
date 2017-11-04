@@ -52,6 +52,10 @@ public class MG_Inputs : MonoBehaviour {
 		if (usedDirections.Contains (tarDirection)) {
 			if (tarDirection == lastDirection) {
 				MG_ControlHero.I._orderMoveHero (lastDirection);
+			} 
+			else if (!usedDirections.Contains (lastDirection)) {
+				MG_ControlHero.I._orderMoveHero (tarDirection);
+				lastDirection = tarDirection;
 			}
 		}
 		else {
