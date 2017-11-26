@@ -10,17 +10,17 @@ public class MG_ControlDoodad : MonoBehaviour {
 	public List<int> toDestroy;
 
 	#region "Creation Codes"
-	public void _createDoodad(string newDoodType, float newPosX, float newPosY){
+	public void _createDoodad(string newDoodType, float newPosX, float newPosY){ Debug.Log ("Creating doodad " + newDoodType + " at " + newPosX + ", " + newPosY);
 		MG_Globals.I.doodadsTemp.Add(new MG_ClassDoodad(MG_DB_Doodad.I._getSprite(newDoodType), newDoodType, doodCnt, newPosX, newPosY));
 		doodCnt++;
 	}
 
-	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float zRotation){
+	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float zRotation){ Debug.Log ("Creating doodad " + newDoodType + " at " + newPosX + ", " + newPosY);
 		MG_Globals.I.doodadsTemp.Add(new MG_ClassDoodad(MG_DB_Doodad.I._getSprite(newDoodType), newDoodType, doodCnt, newPosX, newPosY, zRotation));
 		doodCnt++;
 	}
 
-	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float scaleX, float scaleY, float zPosition, float zRotation = 0){
+	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float scaleX, float scaleY, float zPosition, float zRotation = 0){ Debug.Log ("Creating doodad " + newDoodType + " at " + newPosX + ", " + newPosY);
 		MG_Globals.I.doodadsTemp.Add(new MG_ClassDoodad(MG_DB_Doodad.I._getSprite(newDoodType), doodCnt, newPosX, newPosY, scaleX, scaleY, zPosition, zRotation, newDoodType));
 		doodCnt++;
 	}

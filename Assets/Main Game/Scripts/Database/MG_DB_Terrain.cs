@@ -9,6 +9,7 @@ public class MG_DB_Terrain : MonoBehaviour {
 	public GameObject 			dummy, testA, testB
 	/*Grass*/					,mg_grass01
 	/*Cliff*/					,mg_cliff01
+	/*Water Plain*/				,mg_waterPlain01
 	;
 
 	// DO NOT FORGET TO PUT THESE VALUES IN EditorOverworld / EditorMainGame
@@ -26,6 +27,9 @@ public class MG_DB_Terrain : MonoBehaviour {
 				#endregion
 				#region "Cliff"
 					case "mg_cliff01": retVal = GameObject.Instantiate (mg_cliff01, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
+				#endregion
+				#region "Water Plain"
+					case "mg_waterPlain01": retVal = GameObject.Instantiate (mg_waterPlain01, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
 				#endregion
 
 			default: retVal = GameObject.Instantiate (dummy, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;

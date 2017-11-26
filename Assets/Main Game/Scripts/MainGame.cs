@@ -49,19 +49,21 @@ public class MainGame : MonoBehaviour {
 	}
 
 	void Update(){
-		// Check input
-		MG_Inputs.I._checkPress();
-
-		// Move hero
-		MG_ControlHero.I._moveHero();
-
-		// Temp to main list
-		_tempToMainList();
-
-		// Destroy update
-		_destroyUpdate();
+		/*Check input*/								MG_Inputs.I._checkPress();
+		/*Move hero*/								MG_ControlHero.I._moveHero();
+		/*Temp to main list*/						_tempToMainList();
+		/*Update objects (position, etc...)*/		_updateObjects ();		
+		/*Destroy update*/							_destroyUpdate();
 	}
 
+	#region "Update Objects"
+	private void _updateObjects(){
+		// Units
+		for (int i = 0; i < MG_Globals.I.units.Count; i++) {
+			MG_Globals.I.units [i]._update ();
+		}
+	}
+	#endregion
 	#region "Temp to Main List"
 	private void _tempToMainList(){
 		// Units

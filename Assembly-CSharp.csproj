@@ -55,6 +55,7 @@
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassDoodad.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassTerrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassUnit.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Classes\MG_OnTriggerEnter.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\Get\MG_GetDoodad.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\Get\MG_GetTerrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\Get\MG_GetUnit.cs" />

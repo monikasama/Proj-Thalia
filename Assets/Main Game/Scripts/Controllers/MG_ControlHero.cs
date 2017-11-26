@@ -6,8 +6,7 @@ public class MG_ControlHero : MonoBehaviour {
 	public static MG_ControlHero I;
 	public void Awake(){ I = this; }
 
-	public float MOVE_SPEED = 0.1f;				// 0.1f
-	// 0.1f for main gameplay
+	public float MOVE_SPEED = 10f;
 
 	public MG_ClassUnit hero;
 
@@ -97,9 +96,7 @@ public class MG_ControlHero : MonoBehaviour {
 	}
 
 	public void _orderStopMoving(){
-		if (hero.state == "moving") {
-			hero.state = "idle";
-		}
+		hero._stopMoving ();
 	}
 	#endregion
 

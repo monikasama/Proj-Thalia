@@ -10,6 +10,8 @@ public class MG_Globals : MonoBehaviour {
 	public List<MG_ClassUnit> units, unitsTemp;
 	public List<MG_ClassDoodad> doodads, doodadsTemp;
 
+	public GameObject editorParent;
+
 	// Map data
 	public int map_maxX, map_maxY;
 	public string curMap;

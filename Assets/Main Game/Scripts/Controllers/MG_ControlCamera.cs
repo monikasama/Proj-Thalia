@@ -53,6 +53,11 @@ public class MG_ControlCamera : MonoBehaviour {
 		return p;
 	}
 
+	public Vector3 _getCameraPosition(){
+		Camera camera = GetComponent<Camera>();
+		return camera.transform.position;
+	}
+
 	// Includes
 	//	- _changeBackgroundColor()						- Changes the background color of the camera
 	#region "Misc"

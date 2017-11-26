@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using UnityEditor;
 
@@ -21,27 +22,31 @@ public class EditorMainGame : EditorWindow {
 	#region "Pop-up lists AND Index"
 	// Brush Types
 	string[] optionsBT = new string[]{
-		"NONE", "Terrain", "Unit", "Unit Eraser", "Doodad", "Doodad Eraser", "Corner"
+		"NONE", "Terrain", "Unit", "Unit Eraser", "Doodad", "Doodad Eraser"
 	};
 
 	// Terrain Tiles
 	string[] optionsTer = new string[]{
 		"mg_grass01",
 		"mg_cliff01",
+		"mg_waterPlain01"
 		// Do not forget the corners, place them on "LIST - Corners" on this file
 	};
 
 	#region "LIST - Doodads"
 	string[] optionsDood = new string[]{
-		"GrassCorner",
-
+		"GrassCorner"
+		,"CliffCorner"
+		,"WaterPlainCorner"
 	};
 	List<string> optionsDoodName = new List<string>();
 	public List<string> _getDoodNames(string curDoodType){
 		List<string> retVal = new List<string> ();
 
 		switch (curDoodType) {
-			case "GrassCorner": retVal.AddRange ( new string[]{"GrassCorner1", "GrassCorner2", "GrassCorner3"}); break;
+			case "GrassCorner": retVal.AddRange ( new string[]{"mg_grassCorner1", "mg_grassCorner2", "mg_grassCorner3"}); break;
+			case "CliffCorner": retVal.AddRange ( new string[]{"mg_cliffCorner1", "mg_cliffCorner2", "mg_cliffCorner3", "mg_cliffCorner4", "mg_cliffCorner5", "mg_cliffCorner6", "mg_cliffCorner7", "mg_cliffCorner8"}); break;
+			case "WaterPlainCorner": retVal.AddRange ( new string[]{"mg_waterPlainCorner1", "mg_waterPlainCorner2", "mg_waterPlainCorner3"}); break;
 		}
 
 		return retVal;
@@ -75,8 +80,11 @@ public class EditorMainGame : EditorWindow {
 	private void _turnOnEditor(){
 		try{
 			Debug.Log ("Editor Mode has started. (Main Game)");
+			MG_Globals.I.editorParent.SetActive(true);
 			brush = GameObject.Find ("EditorCursor");
 			editorMode = true;
+
+			_startHelper();					// Start editor helper
 
 			MG_ControlCamera.I._changeBackgroundColor (Color.blue);
 			MG_ControlCamera.I.isEditor = true;
@@ -98,11 +106,13 @@ public class EditorMainGame : EditorWindow {
 	}
 
 	private void _turnOffEditor(bool crash = false){
-		if(!crash)
+		if(!crash && Application.isPlaying)
 			MG_ControlCamera.I._changeBackgroundColor (Color.black);
-
+		
 		MG_ControlCamera.I.isEditor = false;
 		editorMode = false;
+
+		MG_Globals.I.editorParent.SetActive(false);
 	}
 	#endregion
 
@@ -118,13 +128,36 @@ public class EditorMainGame : EditorWindow {
 			}
 		}
 
+		if (!editorMode)
+			return;
+
 		ind_optBT = EditorGUILayout.Popup("Brush Type", ind_optBT, optionsBT);
 		brushMode = optionsBT[ind_optBT];
+		_selectHelperSubCanvas (brushMode);		// Update editor helper sub-canvas
 
 		if (brushMode == "Terrain") {
 			GUILayout.Label ("Terrain Creation", EditorStyles.boldLabel);
 			ind_terrainList = EditorGUILayout.Popup ("Terrain Type", ind_terrainList, optionsTer);
 			terType = optionsTer [ind_terrainList];
+
+			if (GUILayout.Button ("Fill Map Terrain")) {
+				foreach (MG_ClassTerrain tL in MG_Globals.I.terrains) {
+					tL._changeTerrain (MG_DB_Terrain.I._getSprite (terType), terType);
+				}
+			}
+			GUILayout.Label ("-\tThis will turn all tiles into the selected terrain ");
+
+			try {
+				if (Application.isPlaying) {
+					// Show selected terrain in helper
+					GameObject dummy = MG_DB_Terrain.I._getSprite (terType);
+					Sprite image = dummy.GetComponent<SpriteRenderer> ().sprite;
+					iHlp_Terrain.sprite = image;
+					DestroyImmediate(dummy);
+				}
+			} catch (Exception ex) {
+
+			}
 		} else if (brushMode == "Unit") {
 			GUILayout.Label ("Unit Creation", EditorStyles.boldLabel);
 
@@ -158,38 +191,21 @@ public class EditorMainGame : EditorWindow {
 
 			try {
 				if (Application.isPlaying) {
+					// Show selected doodad in helper
 					GameObject dummy = MG_DB_Doodad.I._getSprite (doodType);
-					Texture2D image = dummy.GetComponent<SpriteRenderer> ().sprite.texture;
-					GUILayout.Label (image);
-					DestroyImmediate (dummy);
+					Sprite image = dummy.GetComponent<SpriteRenderer> ().sprite;
+					iHlp_Doodad1.sprite = image;
+					iHlp_Doodad2.sprite = image;
+					iHlp_Doodad3.sprite = image;
+					iHlp_Doodad4.sprite = image;
+					DestroyImmediate(dummy);
 				}
 			} catch (Exception ex) {
 
 			}
 		} else if (brushMode == "Doodad Eraser") {
 
-		} else if (brushMode == "Corner") {
-			GUILayout.Label ("Doodad Corner Creation", EditorStyles.boldLabel);
-
-			ind_cornerBase = EditorGUILayout.Popup ("Corner Base", ind_cornerBase, optionsCornerBase);
-			cornerBase = optionsCornerBase [ind_cornerBase];
-			GUILayout.Label (" ");
-			GUILayout.Label (cornerBase);
-
-			if (cornerBase == "Line") {
-				ind_cornerLine = EditorGUILayout.Popup ("Corner Mode", ind_cornerLine, optionsCornerLine);
-				cornerLine = optionsCornerLine [ind_cornerLine];
-			} 
-			else if (cornerBase == "Outward" || cornerBase == "Inward") {
-				ind_cornerLine = EditorGUILayout.Popup ("Corner Line Mode", ind_cornerLine, optionCornerOutIn);
-				cornerLine = optionCornerOutIn [ind_cornerLine];
-			}
-
-			ind_cornerType = EditorGUILayout.Popup ("Corner Type", ind_cornerType, optionsCornerType);
-			cornerType = optionsCornerType [ind_cornerType];
-
 		}
-
 		GUILayout.Label ("Other Controls", EditorStyles.boldLabel);
 		GUILayout.Label ("E = Teleport Player to mouse");
 	}
@@ -353,5 +369,79 @@ public class EditorMainGame : EditorWindow {
 			_turnOffEditor (true);
 		}
 	}
+	#endregion
+
+	//Includes
+	//	- _startHelper									- Starts the editor helper
+	//	- _selectHelperSubCanvas						- Selects the editor helper'ś subcanvas depending on the current mode of the editor
+	#region "Helper UI Control"
+	public Canvas helperDoodad, helperTerrain;
+	public Image iHlp_Doodad1, iHlp_Doodad2, iHlp_Doodad3, iHlp_Doodad4, iHlp_Terrain;
+
+	public void _startHelper(){
+		helperDoodad = GameObject.Find ("C_EditorDoodad").GetComponent<Canvas>();
+		helperTerrain = GameObject.Find ("C_EditorTerrain").GetComponent<Canvas>();
+
+		iHlp_Doodad1 = GameObject.Find ("E_Dood_ImgSelected1").GetComponent<Image> ();
+		iHlp_Doodad2 = GameObject.Find ("E_Dood_ImgSelected2").GetComponent<Image> ();
+		iHlp_Doodad3 = GameObject.Find ("E_Dood_ImgSelected3").GetComponent<Image> ();
+		iHlp_Doodad4 = GameObject.Find ("E_Dood_ImgSelected4").GetComponent<Image> ();
+
+		iHlp_Terrain = GameObject.Find ("E_Terr_ImgSelected").GetComponent<Image> ();
+	}
+
+	public void _selectHelperSubCanvas(string canvasMode){
+		helperDoodad.enabled = false;
+		helperTerrain.enabled = false;
+
+		switch (canvasMode) {
+			case "Doodad":								helperDoodad.enabled = true; break;
+			case "Terrain":								helperTerrain.enabled = true; break;
+		}
+	}
+	#endregion
+
+	#region "Misc Functions"
+	Texture2D rotateTexture(Texture2D originalTexture, bool clockwise)
+	{
+		Color32[] original = originalTexture.GetPixels32();
+		Color32[] rotated = new Color32[original.Length];
+		int w = originalTexture.width;
+		int h = originalTexture.height;
+
+		int iRotated, iOriginal;
+
+		for (int j = 0; j < h; ++j)
+		{
+			for (int i = 0; i < w; ++i)
+			{
+				iRotated = (i + 1) * h - j - 1;
+				iOriginal = clockwise ? original.Length - 1 - (j * w + i) : j * w + i;
+				rotated[iRotated] = original[iOriginal];
+			}
+		}
+
+		Texture2D rotatedTexture = new Texture2D(h, w);
+		rotatedTexture.SetPixels32(rotated);
+		rotatedTexture.Apply();
+		return rotatedTexture;
+	}
+
+	/*public Texture2D rotateTexture(Texture2D origTexture, float rotation){
+		Color32[] original = origTexture.GetPixels32 ();
+		Color32[] rotated = new Color32[original.Length];
+		int w = origTexture.width;
+		int h = origTexture.height;
+
+		if (rotation == 0) {
+			return origTexture;
+		} else if (rotation == 90) {
+			for (int x = w; x >= 0; x--) {
+				for (int y = 0; y < h; y++) {
+					rotated[]
+				}
+			}
+		}
+	}*/
 	#endregion
 }
