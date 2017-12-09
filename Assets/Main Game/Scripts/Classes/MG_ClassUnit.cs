@@ -30,7 +30,7 @@ public class MG_ClassUnit {
 
 	public MG_ClassUnit(GameObject newSprite, string newType, int newID, float newPosX, float newPosY, int newOwner){
 		sprite = newSprite;
-		sprite.transform.position = new Vector3 (newPosX, newPosY, newPosY + 2);
+		sprite.transform.position = new Vector3 (newPosX, newPosY, newPosY - 3);
 		posX = newPosX; posY = newPosY;
 		type = newType;
 		id = newID;
@@ -50,7 +50,7 @@ public class MG_ClassUnit {
 	public void _changeSprite(string newSpriteName){
 		MG_ControlTerrain.I._destroyTileSprite (sprite);
 		sprite = MG_DB_Unit.I._getSprite (newSpriteName);
-		sprite.transform.position = new Vector3 (posX, posY, posY - 1);
+		sprite.transform.position = new Vector3 (posX, posY, posY - 3);
 	}
 
 	// Only use this update to define this unit's position

@@ -29,6 +29,8 @@ public class MainGame : MonoBehaviour {
 
 		// Initialize controllers
 		MG_ControlHero.I._start();						// Also spawns the hero
+
+		MG_ControlMissile.I._createMissile ("test", 0, 0, 1, 90);
 	}
 
 	private void _createBorders(){
@@ -62,6 +64,11 @@ public class MainGame : MonoBehaviour {
 		for (int i = 0; i < MG_Globals.I.units.Count; i++) {
 			MG_Globals.I.units [i]._update ();
 		}
+
+		// Missiles
+		for (int i = 0; i < MG_Globals.I.missiles.Count; i++) {
+			MG_Globals.I.missiles [i]._update ();
+		}
 	}
 	#endregion
 	#region "Temp to Main List"
@@ -83,6 +90,12 @@ public class MainGame : MonoBehaviour {
 			MG_Globals.I.doodads.AddRange (MG_Globals.I.doodadsTemp);
 			MG_Globals.I.doodadsTemp.Clear ();
 		}
+
+		// Missiles
+		if (MG_Globals.I.missilesTemp.Count > 0) {
+			MG_Globals.I.missiles.AddRange (MG_Globals.I.missilesTemp);
+			MG_Globals.I.missilesTemp.Clear ();
+		}
 	}
 	#endregion
 	#region "Destroy Update"
@@ -93,6 +106,10 @@ public class MainGame : MonoBehaviour {
 
 		// Doodads
 		if (MG_ControlDoodad.I.toDestroy.Count > 0)
+			MG_ControlDoodad.I._destroyListed ();
+
+		// Missiles
+		if (MG_ControlMissile.I.toDestroy.Count > 0)
 			MG_ControlDoodad.I._destroyListed ();
 	}
 	#endregion

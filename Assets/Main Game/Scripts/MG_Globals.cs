@@ -9,6 +9,7 @@ public class MG_Globals : MonoBehaviour {
 	public List<MG_ClassTerrain> terrains, terrainsTemp;
 	public List<MG_ClassUnit> units, unitsTemp;
 	public List<MG_ClassDoodad> doodads, doodadsTemp;
+	public List<MG_ClassMissile> missiles, missilesTemp;
 
 	public GameObject editorParent;
 
@@ -24,6 +25,8 @@ public class MG_Globals : MonoBehaviour {
 		unitsTemp							= new List<MG_ClassUnit>();
 		doodads 							= new List<MG_ClassDoodad> ();
 		doodadsTemp							= new List<MG_ClassDoodad> ();
+		missiles 							= new List<MG_ClassMissile> ();
+		missilesTemp 						= new List<MG_ClassMissile> ();
 
 		// Variables
 

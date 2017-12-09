@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Documentation &amp; Tutorials.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassDoodad.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassMissile.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassTerrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassUnit.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_OnTriggerEnter.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlCamera.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlDoodad.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlHero.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlMissile.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlScene.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlTerrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlUnit.cs" />
@@ -70,6 +72,8 @@
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Doodad.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_DoodadValues.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Maps.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Missile.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_MissileValue.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Terrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Unit.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_UnitValues.cs" />
