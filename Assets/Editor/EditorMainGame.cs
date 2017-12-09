@@ -29,7 +29,9 @@ public class EditorMainGame : EditorWindow {
 	string[] optionsTer = new string[]{
 		"mg_grass01",
 		"mg_cliff01",
-		"mg_waterPlain01"
+		"mg_waterPlain01",
+		"mg_dirt01",
+		"mg_roadRock01"
 		// Do not forget the corners, place them on "LIST - Corners" on this file
 	};
 
@@ -38,6 +40,8 @@ public class EditorMainGame : EditorWindow {
 		"GrassCorner"
 		,"CliffCorner"
 		,"WaterPlainCorner"
+		,"DirtCorner"
+		,"RoadRockCorner"
 	};
 	List<string> optionsDoodName = new List<string>();
 	public List<string> _getDoodNames(string curDoodType){
@@ -47,6 +51,8 @@ public class EditorMainGame : EditorWindow {
 			case "GrassCorner": retVal.AddRange ( new string[]{"mg_grassCorner1", "mg_grassCorner2", "mg_grassCorner3"}); break;
 			case "CliffCorner": retVal.AddRange ( new string[]{"mg_cliffCorner1", "mg_cliffCorner2", "mg_cliffCorner3", "mg_cliffCorner4", "mg_cliffCorner5", "mg_cliffCorner6", "mg_cliffCorner7", "mg_cliffCorner8"}); break;
 			case "WaterPlainCorner": retVal.AddRange ( new string[]{"mg_waterPlainCorner1", "mg_waterPlainCorner2", "mg_waterPlainCorner3"}); break;
+			case "DirtCorner": retVal.AddRange ( new string[]{"mg_dirtCorner1", "mg_dirtCorner2", "mg_dirtCorner3"}); break;
+			case "RoadRockCorner": retVal.AddRange ( new string[]{"mg_roadRockCorner1", "mg_roadRockCorner2", "mg_roadRockCorner3", "mg_roadRockCorner4", "mg_roadRockCorner5", "mg_roadRockCorner6", "mg_roadRockCorner7"}); break;
 		}
 
 		return retVal;

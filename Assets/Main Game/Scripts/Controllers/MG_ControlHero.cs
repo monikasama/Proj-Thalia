@@ -50,10 +50,15 @@ public class MG_ControlHero : MonoBehaviour {
 			return;
 
 		switch(direction){
-			case "Right": 		moveAngle = 0; break;
-			case "Left": 		moveAngle = 180; break;
-			case "Up": 			moveAngle = 90; break;
-			case "Down": 		moveAngle = 270; break;
+			case "Right": 			moveAngle = 0; break;
+			case "Left": 			moveAngle = 180; break;
+			case "Up": 				moveAngle = 90; break;
+			case "Down": 			moveAngle = 270; break;
+
+			case "UpRight": 		moveAngle = 45; break;
+			case "UpLeft": 			moveAngle = 135; break;
+			case "DownRight": 		moveAngle = 315; break;
+			case "DownLeft": 		moveAngle = 225; break;
 		}
 		hero.facing = direction;
 		hero.state = "moving";
@@ -75,6 +80,15 @@ public class MG_ControlHero : MonoBehaviour {
 			case "Left": if(hero.posX <= -MG_Globals.I.map_maxX) 		output = false; break;
 			case "Up": if(hero.posY >= MG_Globals.I.map_maxY) 			output = false; break;
 			case "Down": if(hero.posY <= -MG_Globals.I.map_maxY) 		output = false; break;
+		
+			case "UpRight": if(hero.posY >= MG_Globals.I.map_maxY || hero.posX >= MG_Globals.I.map_maxX) 		
+				output = false; break;
+			case "UpLeft": if(hero.posY >= MG_Globals.I.map_maxY || hero.posX <= -MG_Globals.I.map_maxX) 		
+				output = false; break;
+			case "DownRight": if(hero.posY <= -MG_Globals.I.map_maxY || hero.posY >= MG_Globals.I.map_maxY) 	
+				output = false; break;
+			case "DownLeft": if(hero.posY <= -MG_Globals.I.map_maxY || hero.posY <= -MG_Globals.I.map_maxY) 	
+				output = false; break;
 		}
 
 		return output;

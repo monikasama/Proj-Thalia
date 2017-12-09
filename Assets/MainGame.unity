@@ -257,6 +257,26 @@ MonoBehaviour:
     type: 2}
   mg_waterPlainCorner3: {fileID: 1114692078447340, guid: bf0334661968da0458e46b32abb82da1,
     type: 2}
+  mg_dirtCorner1: {fileID: 1049873643452682, guid: 3ea513784c3875d4882ccae307dda5c3,
+    type: 2}
+  mg_dirtCorner2: {fileID: 1062929218360582, guid: 4d57af14e5d4d444a8b5725e3424f755,
+    type: 2}
+  mg_dirtCorner3: {fileID: 1192331483144922, guid: fa24f77f33cae2c4e9a43a7fd0a4d34b,
+    type: 2}
+  mg_roadRockCorner1: {fileID: 1915245940104242, guid: fdda3d3e5e429da4983a90683f4dfc05,
+    type: 2}
+  mg_roadRockCorner2: {fileID: 1150953037796242, guid: 6e041ff3357777440b950b574c471071,
+    type: 2}
+  mg_roadRockCorner3: {fileID: 1115852171483862, guid: a3e5cf884842e2246b6e08b328bc0d8d,
+    type: 2}
+  mg_roadRockCorner4: {fileID: 1098621931939896, guid: 3978a5fce868b1941ad432959e99d001,
+    type: 2}
+  mg_roadRockCorner5: {fileID: 1228360413524454, guid: fa3e1926d3615db489864611ef50fcef,
+    type: 2}
+  mg_roadRockCorner6: {fileID: 1092538699236442, guid: 69128db92bc668c4b90db94f38c2bfa1,
+    type: 2}
+  mg_roadRockCorner7: {fileID: 1073795166759210, guid: 2f5a27da8f6abc84a967672db43953dc,
+    type: 2}
 --- !u!114 &9667600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd02975288f03d142a66bf3f063f4984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IS_MULTIDIRECTIONAL: 0
   usedDirections: []
 --- !u!114 &278039491
 MonoBehaviour:
@@ -2387,6 +2408,9 @@ MonoBehaviour:
   mg_cliff01: {fileID: 1329457984896476, guid: 1c7d8b87c4ae172429904f45c947be4b, type: 2}
   mg_waterPlain01: {fileID: 1407851046730318, guid: 594e071e73813264b911b753c06d2a81,
     type: 2}
+  mg_dirt01: {fileID: 1229252847383706, guid: f5dcbdff34468c54aa8a51f8450836a7, type: 2}
+  mg_roadRock01: {fileID: 1089846806746782, guid: 8f842fa5d7a3e5b4d87bad3fdbeb9da3,
+    type: 2}
 --- !u!1 &1170959751
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,7 +3754,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1647366279}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4469,7 +4493,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2084261226}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

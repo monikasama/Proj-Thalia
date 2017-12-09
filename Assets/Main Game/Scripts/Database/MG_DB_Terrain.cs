@@ -10,6 +10,8 @@ public class MG_DB_Terrain : MonoBehaviour {
 	/*Grass*/					,mg_grass01
 	/*Cliff*/					,mg_cliff01
 	/*Water Plain*/				,mg_waterPlain01
+	/*Dirt*/					,mg_dirt01
+	/*ROAD - Rock*/				,mg_roadRock01
 	;
 
 	// DO NOT FORGET TO PUT THESE VALUES IN EditorOverworld / EditorMainGame
@@ -30,6 +32,12 @@ public class MG_DB_Terrain : MonoBehaviour {
 				#endregion
 				#region "Water Plain"
 					case "mg_waterPlain01": retVal = GameObject.Instantiate (mg_waterPlain01, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
+				#endregion
+				#region "Dirt"
+				case "mg_dirt01": retVal = GameObject.Instantiate (mg_dirt01, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
+				#endregion
+				#region "ROAD - Rock"
+				case "mg_roadRock01": retVal = GameObject.Instantiate (mg_roadRock01, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
 				#endregion
 
 			default: retVal = GameObject.Instantiate (dummy, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
