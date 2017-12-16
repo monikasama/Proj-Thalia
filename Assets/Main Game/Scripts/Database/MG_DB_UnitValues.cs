@@ -8,16 +8,27 @@ public class MG_DB_UnitValues : MonoBehaviour {
 
 	public string obstacleType, nature;
 
+	public int HP, MP;
+	public float moveSpeed;
+
 	public void _setValues(string newUnitType){
 		switch (newUnitType) {
+			#region "Game dummies"
 			case "pathBlocker":
-				obstacleType 						= "boulder";
-				nature 								= " ";
+				HP = 1000; MP = 1000;
+				moveSpeed = 10f;
 			break;
-			case "testTown":
-				obstacleType 						= " ";
-				nature 								= "location";
+			#endregion
+			#region "Test Units"
+			case "testYou":
+				HP = 10; MP = 10;
+				moveSpeed = 10f;
 			break;
+			case "testEnemy":
+				HP = 1; MP = 1;
+				moveSpeed = 10f;
+			break;
+			#endregion
 			default:
 				obstacleType 						= " ";
 				nature 								= " ";

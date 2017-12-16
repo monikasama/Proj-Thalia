@@ -5,20 +5,17 @@ using UnityEngine;
 public class MG_ClassUnit {
 
 	public GameObject sprite;
-	public string type, facing, nature, moveType, obstacleType;
+	public string type, facing, moveType, obstacleType;
 
 	public int owner;
 	public Rigidbody2D rigidBody;
 
+	// MAIN STATS
+	public int HP, MP, HPmax, MPmax;
+	public float moveSpeed;
+
 	/*
-	 * 	MOVE TYPE - This is set from the hero control (MG_ControlHero.cs)
 	 * 
-	 * 	TYPES OF MOVE TYPES:
-	 * 	- land
-	 *  - air
-	 * 	
-	 * 	TYPES OF OBSTACLE TYPES:
-	 *  - boulder 			- Unpassable
 	 */
 
 	public float posX, posY;
@@ -35,10 +32,13 @@ public class MG_ClassUnit {
 		type = newType;
 		id = newID;
 		facing = "Right";
+		owner = newOwner;
 
 		MG_DB_UnitValues.I._setValues (newType);
-		obstacleType 			= MG_DB_UnitValues.I.obstacleType;
-		nature 					= MG_DB_UnitValues.I.nature;
+		HPmax = MG_DB_UnitValues.I.HP;
+		MPmax = MG_DB_UnitValues.I.MP;
+		HP = HPmax; MP = MPmax;
+		moveSpeed = MG_DB_UnitValues.I.moveSpeed;
 
 		sprite.transform.SetParent (GameObject.Find ("_MG_UNITS").transform);
 		rigidBody = sprite.GetComponent<Rigidbody2D>();
@@ -62,11 +62,15 @@ public class MG_ClassUnit {
 	}
 	#endregion
 
-	#region "Commands"
+	#region "COMMANDS - Move"
 	/// <summary>
-	/// Moves by CURRENT_POSITION + MOVE_VECTOR
+	/// Moves by CURRENT_POSITION + MOVE_VECTOR (Calculated in this function based from inputted angle)
 	/// </summary>
-	public void _move_Increment(float moveX, float moveY){
+	public void _move_Increment(float moveAngle){
+		if(state != "idle" && state != "moving") return;
+		float 	moveX = moveSpeed * Mathf.Cos ((moveAngle * Mathf.PI) / 180),
+				moveY = moveSpeed * Mathf.Sin ((moveAngle * Mathf.PI) / 180);
+
 		rigidBody.velocity = new Vector3 (moveX, moveY);
 	}
 

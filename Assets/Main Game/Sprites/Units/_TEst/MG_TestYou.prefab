@@ -21,11 +21,12 @@ GameObject:
   - component: {fileID: 4141603261331042}
   - component: {fileID: 212427483336425168}
   - component: {fileID: 61275171416201050}
-  - component: {fileID: 114398660229487274}
+  - component: {fileID: 61202848341956366}
   - component: {fileID: 50237724443136878}
+  - component: {fileID: 114398660229487274}
   m_Layer: 0
   m_Name: MG_TestYou
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730320290621494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3271413, y: 3.268442, z: 0}
+  m_LocalPosition: {x: -42.618813, y: -9.133882, z: 0}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,8 +62,33 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &61202848341956366
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730320290621494}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0029996634, y: 0.0014998913}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.64396334, y: 0.65296125}
+  m_EdgeRadius: 0
 --- !u!61 &61275171416201050
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -99,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ae59956f30bb4a95ed00d811963ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 0}
   collideList: []
   hasCollided: 0
 --- !u!212 &212427483336425168

@@ -10,6 +10,7 @@ public class MG_Globals : MonoBehaviour {
 	public List<MG_ClassUnit> units, unitsTemp;
 	public List<MG_ClassDoodad> doodads, doodadsTemp;
 	public List<MG_ClassMissile> missiles, missilesTemp;
+	public List<MG_ClassPlayer> players;
 
 	public GameObject editorParent;
 
@@ -27,6 +28,8 @@ public class MG_Globals : MonoBehaviour {
 		doodadsTemp							= new List<MG_ClassDoodad> ();
 		missiles 							= new List<MG_ClassMissile> ();
 		missilesTemp 						= new List<MG_ClassMissile> ();
+
+		players 							= new List<MG_ClassPlayer> ();	// Setted-up at MG_ControlPlayer.cs
 
 		// Variables
 

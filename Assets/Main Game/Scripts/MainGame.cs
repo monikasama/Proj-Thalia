@@ -20,6 +20,8 @@ public class MainGame : MonoBehaviour {
 		// Initialize other scripts
 		MG_Globals.I._start();
 		MG_Inputs.I._start();
+		MG_ControlPlayer.I._setupPlayers ();
+		MG_ControlCollision.I._start ();
 
 		// Create the map
 		MG_DB_Maps.I._createMap(PlayerPrefs.GetString("NextMap"));
@@ -30,7 +32,8 @@ public class MainGame : MonoBehaviour {
 		// Initialize controllers
 		MG_ControlHero.I._start();						// Also spawns the hero
 
-		MG_ControlMissile.I._createMissile ("test", 0, 0, 1, 90);
+		MG_ControlMissile.I._createMissile ("test", 0, 0, 1, 270);
+		MG_ControlUnit.I._createUnit ("testEnemy", 0, -4, 2);
 	}
 
 	private void _createBorders(){
@@ -56,6 +59,7 @@ public class MainGame : MonoBehaviour {
 		/*Temp to main list*/						_tempToMainList();
 		/*Update objects (position, etc...)*/		_updateObjects ();		
 		/*Destroy update*/							_destroyUpdate();
+		/*Clear collisions*/						MG_ControlCollision.I._clearHandledCollisions ();
 	}
 
 	#region "Update Objects"
@@ -100,17 +104,9 @@ public class MainGame : MonoBehaviour {
 	#endregion
 	#region "Destroy Update"
 	void _destroyUpdate(){
-		// Units
-		if (MG_ControlUnit.I.toDestroy.Count > 0)
-			MG_ControlUnit.I._destroyListed ();
-
-		// Doodads
-		if (MG_ControlDoodad.I.toDestroy.Count > 0)
-			MG_ControlDoodad.I._destroyListed ();
-
-		// Missiles
-		if (MG_ControlMissile.I.toDestroy.Count > 0)
-			MG_ControlDoodad.I._destroyListed ();
+		/*Units*/					MG_ControlUnit.I._destroyListed ();
+		/*Doodads*/					MG_ControlDoodad.I._destroyListed ();
+		/*Missiles*/				MG_ControlMissile.I._destroyListed ();
 	}
 	#endregion
 }

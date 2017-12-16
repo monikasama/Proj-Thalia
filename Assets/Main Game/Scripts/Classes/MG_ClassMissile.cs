@@ -9,14 +9,37 @@ public class MG_ClassMissile {
 
 	public float posX, posY, angle, speed;
 	public string type;
-	public int id;
+	public int id, ownerID, playerOwner;
 
-	public MG_ClassMissile(GameObject newSprite, string newType, int newID, float newPosX, float newPosY, int ownerID, float newAngle){
+	public MG_ClassMissile(GameObject newSprite, string newType, int newID, float newPosX, float newPosY, int newOwnerID, float newAngle){
 		sprite = newSprite;
 		sprite.transform.position = new Vector3 (newPosX, newPosY, newPosY - 4);
 		posX = newPosX; posY = newPosY;
 		type = newType;
 		id = newID;
+		ownerID = newOwnerID;
+
+		// Get player owner
+		#region "Get Player Owner"
+		bool hasOwner = false;
+		foreach(MG_ClassUnit uL in MG_Globals.I.units){
+			if (uL.id == ownerID) {
+				playerOwner = uL.owner;
+				hasOwner = true;
+				break;
+			}
+		}
+		if(!hasOwner){
+			foreach(MG_ClassUnit uL in MG_Globals.I.unitsTemp){
+				if (uL.id == ownerID) {
+					playerOwner = uL.owner;
+					hasOwner = true;
+					break;
+				}
+			}
+		}
+		if(!hasOwner)		playerOwner = 3;
+		#endregion
 		
 		angle = newAngle;
 		sprite.transform.SetParent (GameObject.Find ("_MG_MISSILES").transform);
@@ -31,7 +54,7 @@ public class MG_ClassMissile {
 	// 	_update() - 								Moves the missile and define this missile's position
 	//	_changeSprite() -							
 	#region "Update"
-	public void _update(){ Debug.Log ("moving this missile");
+	public void _update(){
 		float speedX = speed * Mathf.Cos ((angle * Mathf.PI) / 180);
 		float speedY = speed * Mathf.Sin ((angle * Mathf.PI) / 180);
 		rigidBody.velocity = new Vector3 (speedX, speedY);

@@ -7,8 +7,8 @@ public class MG_DB_Unit : MonoBehaviour {
 	public void Awake(){ I = this; }
 
 	public GameObject dummy 
-	/*Test*/	,testYou
-	/*Editor*/	,pathBlokEditor, entranceEditor
+	/*Test*/	, testYou, testEnemy
+	/*Editor*/	, pathBlokEditor, entranceEditor
 	;
 
 	// DO NOT FORGET TO PUT THESE VALUES IN EditorOverworld / EditorMainGame
@@ -19,6 +19,7 @@ public class MG_DB_Unit : MonoBehaviour {
 		switch (newSpriteName) {
 			#region "Test Sprites"
 			case "testYou": retVal = GameObject.Instantiate (testYou, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
+			case "testEnemy": retVal = GameObject.Instantiate (testEnemy, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
 			#endregion
 			#region "Editor"
 			case "pathBlocker_Editor": 	retVal = GameObject.Instantiate (pathBlokEditor, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;

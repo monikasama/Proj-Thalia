@@ -1,12 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\EditorMainGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Main Game\Scripts\Classes\MG_OnTriggerEnter.cs">
     <Files>
-      <File FileName="Assets\Main Game\Scripts\MG_Inputs.cs" Line="1" Column="1" />
-      <File FileName="Assets\Main Game\Scripts\MainGame.cs" Line="18" Column="27" />
-      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Terrain.cs" Line="41" Column="15" />
-      <File FileName="Assets\Editor\EditorMainGame.cs" Line="55" Column="209" />
-      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Doodad.cs" Line="56" Column="82" />
+      <File FileName="Assets\Main Game\Scripts\Classes\MG_ClassMissile.cs" Line="21" Column="20" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\MG_ControlMissile.cs" Line="18" Column="12" />
+      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_MissileValue.cs" Line="17" Column="4" />
+      <File FileName="Assets\Main Game\Scripts\MainGame.cs" Line="34" Column="56" />
+      <File FileName="Assets\Main Game\Scripts\MG_Inputs.cs" Line="23" Column="16" />
+      <File FileName="Assets\Main Game\Scripts\Classes\MG_OnTriggerEnter.cs" Line="15" Column="72" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\MG_ControlCollision.cs" Line="6" Column="38" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\MG_ControlDoodad.cs" Line="8" Column="2" />
+      <File FileName="Assets\Main Game\Scripts\Classes\MG_ClassUnit.cs" Line="28" Column="115" NotebookId="1" />
+      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Unit.cs" Line="23" Column="14" NotebookId="1" />
+      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_UnitValues.cs" Line="23" Column="19" NotebookId="1" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\MG_ControlHero.cs" Line="62" Column="10" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

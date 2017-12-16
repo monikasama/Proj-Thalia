@@ -13,7 +13,7 @@ public class MG_Inputs : MonoBehaviour {
 	public void _start(){
 		usedDirections = new List<string> ();
 
-		IS_MULTIDIRECTIONAL = true;
+		IS_MULTIDIRECTIONAL = false;
 	}
 
 	private string lastDirection;

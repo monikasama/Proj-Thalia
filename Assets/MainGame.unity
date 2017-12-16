@@ -620,6 +620,9 @@ GameObject:
   - component: {fileID: 278039490}
   - component: {fileID: 278039489}
   - component: {fileID: 278039488}
+  - component: {fileID: 278039492}
+  - component: {fileID: 278039494}
+  - component: {fileID: 278039493}
   m_Layer: 0
   m_Name: _MAIN
   m_TagString: Untagged
@@ -694,6 +697,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackBorder: {fileID: 1733832109001220, guid: b6be2c3ef53a16749bad27a653c6ebdb,
     type: 2}
+--- !u!114 &278039492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278039486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66a7a487bab03247af907096a7e10ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &278039493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278039486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3e3a798bd10b740a2e777fc3225078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &278039494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278039486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf4c1308e0fddf41b7e8a8bf355a15b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &299205353
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,6 +3259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleType: 
   nature: 
+  HP: 0
+  MP: 0
+  moveSpeed: 0
 --- !u!114 &1475598896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3247,6 +3286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dummy: {fileID: 1931367605319190, guid: 353a4a4422cd5564296deb87274dd551, type: 2}
   testYou: {fileID: 1730320290621494, guid: f9e63413d8b4e2443844748d97026ef7, type: 2}
+  testEnemy: {fileID: 1012582426931162, guid: 63ed1d41e27962a4ca5c9327ace189da, type: 2}
   pathBlokEditor: {fileID: 1791684922019098, guid: 0871ec3e03754544287c78a9af694109,
     type: 2}
   entranceEditor: {fileID: 1000058283587000, guid: de03f81d351667a42ab3b133c29076df,
@@ -3274,7 +3314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08a6ace041a0e34f97d65649201d7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MOVE_SPEED: 10
   moveAngle: 0
 --- !u!1 &1484518370
 GameObject:
@@ -3827,7 +3866,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1647366279}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4594,7 +4633,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2084261226}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

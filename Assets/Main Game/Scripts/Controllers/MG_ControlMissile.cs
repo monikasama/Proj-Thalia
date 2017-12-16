@@ -15,7 +15,7 @@ public class MG_ControlMissile : MonoBehaviour {
 		MG_Globals.I.missilesTemp.Add (new MG_ClassMissile (MG_DB_Missile.I._getSprite (newType), newType, missileCnt, newPosX, newPosY, ownerID, newAngle));
 		missileCnt++;
 	}
-	#endregion
+           	#endregion
 
 	#region "Destroy Codes"
 	public void _addToDestroyList(MG_ClassMissile targetMissile){

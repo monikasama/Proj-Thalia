@@ -6,8 +6,6 @@ public class MG_ControlHero : MonoBehaviour {
 	public static MG_ControlHero I;
 	public void Awake(){ I = this; }
 
-	public float MOVE_SPEED = 10f;
-
 	public MG_ClassUnit hero;
 
 	public void _start(){
@@ -100,7 +98,7 @@ public class MG_ControlHero : MonoBehaviour {
 			if(!_orderMoveHerMG_Conditions(hero.facing))
 				return;
 			
-			hero._move_Increment (MOVE_SPEED * Mathf.Cos((moveAngle*Mathf.PI)/180), MOVE_SPEED * Mathf.Sin((moveAngle*Mathf.PI)/180));
+			hero._move_Increment (moveAngle);
 			MG_ControlCamera.I._reposition(hero.sprite.transform.position.x, hero.sprite.transform.position.y);
 
 			//Events
