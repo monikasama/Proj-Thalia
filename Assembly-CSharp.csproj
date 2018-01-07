@@ -62,15 +62,18 @@
      <Compile Include="Assets\Main Game\Scripts\Controllers\Get\MG_GetDoodad.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\Get\MG_GetTerrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\Get\MG_GetUnit.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Controllers\Hero\MG_ControlHero.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Controllers\Hero\MG_HeroWeapons.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlCamera.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlCollision.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlDoodad.cs" />
-     <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlHero.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlMissile.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlPlayer.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlScene.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlTerrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlUnit.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlWeapon.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Controllers\UI\MG_UI_HeroWeapons.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\Maps\MGMAP_Test.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\Maps\MGMAP_TestMap001.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Doodad.cs" />
@@ -81,6 +84,7 @@
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Terrain.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Unit.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_UnitValues.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Weapons.cs" />
      <Compile Include="Assets\Main Game\Scripts\MainGame.cs" />
      <Compile Include="Assets\Main Game\Scripts\MG_Globals.cs" />
      <Compile Include="Assets\Main Game\Scripts\MG_Inputs.cs" />

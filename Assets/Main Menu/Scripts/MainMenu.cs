@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
 	void Start () {
+		// Z-Player prefs
+		ZPlayerPrefs.Initialize("sqPrefEncrypt29845", "09164667352sss");
+
 		// First time running the game
 		if (PlayerPrefs.GetInt ("FirstRun") != 1)
 			SetPlayerPrefs.I._setPlayerPrefs ();
-
-		// Z-Player prefs
-		ZPlayerPrefs.Initialize("sqPrefEncrypt29845", "09164667352sss");
+	
 		// FOR TESTING
 		ZPlayerPrefs.SetInt("Profile", 1);
 		Debug.Log (ZPlayerPrefs.GetInt ("Profile"));

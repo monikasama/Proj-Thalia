@@ -10,17 +10,19 @@ public class MG_ControlDoodad : MonoBehaviour {
 	public List<int> toDestroy;
 
 	#region "Creation Codes"
-	public void _createDoodad(string newDoodType, float newPosX, float newPosY){ Debug.Log ("Creating doodad " + newDoodType + " at " + newPosX + ", " + newPosY);
+	public void _createDoodad(string newDoodType, float newPosX, float newPosY, bool isEditor = false){
 		MG_Globals.I.doodadsTemp.Add(new MG_ClassDoodad(MG_DB_Doodad.I._getSprite(newDoodType), newDoodType, doodCnt, newPosX, newPosY));
+		if(isEditor) MG_GetDoodad.I._getLastCreatedDood ()._adjustAnchorPointForEditor ();
 		doodCnt++;
 	}
 
-	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float zRotation){ Debug.Log ("Creating doodad " + newDoodType + " at " + newPosX + ", " + newPosY);
+	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float zRotation, bool isEditor = false){
 		MG_Globals.I.doodadsTemp.Add(new MG_ClassDoodad(MG_DB_Doodad.I._getSprite(newDoodType), newDoodType, doodCnt, newPosX, newPosY, zRotation));
+		if(isEditor) MG_GetDoodad.I._getLastCreatedDood ()._adjustAnchorPointForEditor ();
 		doodCnt++;
 	}
 
-	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float scaleX, float scaleY, float zPosition, float zRotation = 0){ Debug.Log ("Creating doodad " + newDoodType + " at " + newPosX + ", " + newPosY);
+	public void _createDoodad(string newDoodType, float newPosX, float newPosY, float scaleX, float scaleY, float zPosition, float zRotation = 0){
 		MG_Globals.I.doodadsTemp.Add(new MG_ClassDoodad(MG_DB_Doodad.I._getSprite(newDoodType), doodCnt, newPosX, newPosY, scaleX, scaleY, zPosition, zRotation, newDoodType));
 		doodCnt++;
 	}

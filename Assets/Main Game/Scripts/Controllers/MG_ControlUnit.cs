@@ -48,9 +48,14 @@ public class MG_ControlUnit : MonoBehaviour {
 			}
 		}
 		if (indexToRemove > -1) {
-			Destroy (MG_Globals.I.units [indexToRemove].sprite);
+			if(MG_Globals.I.units [indexToRemove].sprite)
+				Destroy (MG_Globals.I.units [indexToRemove].sprite);
 			MG_Globals.I.units.RemoveAt (indexToRemove);
 		}
+	}
+
+	public void _destroyGameObject(GameObject targetObj){
+		Destroy (targetObj);
 	}
 	#endregion
 }

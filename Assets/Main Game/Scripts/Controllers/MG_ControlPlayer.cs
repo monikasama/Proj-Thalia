@@ -17,7 +17,7 @@ public class MG_ControlPlayer : MonoBehaviour {
 	// Includes
 	//  - _getIsEnemy()							- Returns true if inputted players are hostile to each other
 	#region "Get Relationships"
-	public bool _getIsEnemy(int firstPlayerID, int secondPlayerID){Debug.Log(firstPlayerID + ", " + secondPlayerID);
+	public bool _getIsEnemy(int firstPlayerID, int secondPlayerID){
 		bool retVal = false;
 		foreach (MG_ClassPlayer pL in MG_Globals.I.players) {
 			if (pL.id == firstPlayerID) {

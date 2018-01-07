@@ -11,15 +11,24 @@ public class MG_CalcDamage : MonoBehaviour {
 			return;
 
 		damaged.HP -= damageAmt;
-		Debug.Log (damaged.id + " takes damage =" + damageAmt);
+
+		// Kill
+		bool kill = true;
+		if(damaged.HP <= 0){
+
+			if (kill) {
+				damaged._kill ();
+			}
+		}
 	}
 
 	/// <summary>
 	/// Returns true if damage can be dealt
 	/// </summary>
 	public bool _damageUnit_Conditions(MG_ClassUnit damager, MG_ClassUnit damaged){
-		bool retVal = true;
 
-		return retVal;
+		if (damaged.isDead) 		return false;
+
+		return true;
 	}
 }

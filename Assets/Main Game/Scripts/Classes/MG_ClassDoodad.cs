@@ -64,4 +64,20 @@ public class MG_ClassDoodad {
 		type = newObjType;
 	}
 	#endregion
+
+	//Includes
+	//	- _adjustAnchorPointForEditor()													- Used to reposition anchor point for editor use
+	#region "Misc"
+	// Used to reposition anchor point for editor use
+	public void _adjustAnchorPointForEditor(){
+		switch (type) {
+			case "mg_treeSummer_01":
+				sprite.transform.position = new Vector3(sprite.transform.position.x, sprite.transform.position.y + 0.7f, sprite.transform.position.z);
+			break;
+			case "mg_treeSummer_02":
+				sprite.transform.position = new Vector3(sprite.transform.position.x, sprite.transform.position.y + 0.7f, sprite.transform.position.z);
+			break;
+		}
+	}
+	#endregion
 }

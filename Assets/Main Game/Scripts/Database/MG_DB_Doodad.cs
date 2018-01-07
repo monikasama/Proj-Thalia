@@ -12,6 +12,8 @@ public class MG_DB_Doodad : MonoBehaviour {
 	/*CORNERS - Water Plain*/		, mg_waterPlainCorner1, mg_waterPlainCorner2, mg_waterPlainCorner3
 	/*CORNERS - Dirt*/				, mg_dirtCorner1, mg_dirtCorner2, mg_dirtCorner3
 	/*CORNERS - ROAD - Rock*/		, mg_roadRockCorner1, mg_roadRockCorner2, mg_roadRockCorner3, mg_roadRockCorner4, mg_roadRockCorner5, mg_roadRockCorner6, mg_roadRockCorner7
+
+	/*TREES - Summer*/				, mg_treeSummer_01, mg_treeSummer_02
 	;
 
 	public GameObject _getSprite(string newSpriteName){
@@ -54,6 +56,11 @@ public class MG_DB_Doodad : MonoBehaviour {
 			case "mg_roadRockCorner5": retVal = GameObject.Instantiate (mg_roadRockCorner5, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
 			case "mg_roadRockCorner6": retVal = GameObject.Instantiate (mg_roadRockCorner6, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
 			case "mg_roadRockCorner7": retVal = GameObject.Instantiate (mg_roadRockCorner7, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
+			#endregion
+
+			#region "TREES - Summer"
+			case "mg_treeSummer_01": retVal = GameObject.Instantiate (mg_treeSummer_01, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
+			case "mg_treeSummer_02": retVal = GameObject.Instantiate (mg_treeSummer_02, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
 			#endregion
 			default:  retVal = GameObject.Instantiate (dummy, new Vector3 (0, 0, 0), Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject; break;
 		}

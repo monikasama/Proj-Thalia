@@ -42,6 +42,7 @@ public class EditorMainGame : EditorWindow {
 		,"WaterPlainCorner"
 		,"DirtCorner"
 		,"RoadRockCorner"
+		,"TREES - Summer"
 	};
 	List<string> optionsDoodName = new List<string>();
 	public List<string> _getDoodNames(string curDoodType){
@@ -53,6 +54,7 @@ public class EditorMainGame : EditorWindow {
 			case "WaterPlainCorner": retVal.AddRange ( new string[]{"mg_waterPlainCorner1", "mg_waterPlainCorner2", "mg_waterPlainCorner3"}); break;
 			case "DirtCorner": retVal.AddRange ( new string[]{"mg_dirtCorner1", "mg_dirtCorner2", "mg_dirtCorner3"}); break;
 			case "RoadRockCorner": retVal.AddRange ( new string[]{"mg_roadRockCorner1", "mg_roadRockCorner2", "mg_roadRockCorner3", "mg_roadRockCorner4", "mg_roadRockCorner5", "mg_roadRockCorner6", "mg_roadRockCorner7"}); break;
+			case "TREES - Summer": retVal.AddRange ( new string[]{"mg_treeSummer_01", "mg_treeSummer_02"}); break;
 		}
 
 		return retVal;
@@ -278,9 +280,9 @@ public class EditorMainGame : EditorWindow {
 
 					// Create Doodad
 					if(rotateDood)
-						MG_ControlDoodad.I._createDoodad(doodType, actPosX, actPosY, zRotation);
+						MG_ControlDoodad.I._createDoodad(doodType, actPosX, actPosY, zRotation, true);
 					else
-						MG_ControlDoodad.I._createDoodad(doodType, actPosX, actPosY);
+						MG_ControlDoodad.I._createDoodad(doodType, actPosX, actPosY, true);
 
 					// Specials
 					MG_ClassDoodad createdDood = MG_GetDoodad.I._getLastCreatedDood();

@@ -12,7 +12,7 @@ public class MG_DB_MissileValue : MonoBehaviour {
 	public void _setValues(string newUnitType){
 		switch (newUnitType) {
 			case "test":
-				speed 								= 5f;
+				speed 								= 20f;
 			break;
 		}
 	}

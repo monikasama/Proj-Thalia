@@ -21,7 +21,10 @@ public class MainGame : MonoBehaviour {
 		MG_Globals.I._start();
 		MG_Inputs.I._start();
 		MG_ControlPlayer.I._setupPlayers ();
+		MG_HeroWeapons.I._setupWeapons ();
+		MG_ControlWeapon.I._start ();
 		MG_ControlCollision.I._start ();
+		/*UI*/MG_UI_HeroWeapons.I._start ();
 
 		// Create the map
 		MG_DB_Maps.I._createMap(PlayerPrefs.GetString("NextMap"));
@@ -32,7 +35,6 @@ public class MainGame : MonoBehaviour {
 		// Initialize controllers
 		MG_ControlHero.I._start();						// Also spawns the hero
 
-		MG_ControlMissile.I._createMissile ("test", 0, 0, 1, 270);
 		MG_ControlUnit.I._createUnit ("testEnemy", 0, -4, 2);
 	}
 
@@ -60,6 +62,7 @@ public class MainGame : MonoBehaviour {
 		/*Update objects (position, etc...)*/		_updateObjects ();		
 		/*Destroy update*/							_destroyUpdate();
 		/*Clear collisions*/						MG_ControlCollision.I._clearHandledCollisions ();
+		/*Reload update*/							MG_HeroWeapons.I._reloadUpdate ();
 	}
 
 	#region "Update Objects"

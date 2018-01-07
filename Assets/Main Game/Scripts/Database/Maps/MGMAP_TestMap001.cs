@@ -10,8 +10,8 @@ public class MGMAP_TestMap001 : MonoBehaviour {
 		#region "Test Terrain"
 		bool isB = false;
 		string newTer = "testA";
-		for (int x = -10; x <= 10; x++) {
-			for (int y = -10; y <= 10; y++) {
+		for (int x = -100; x <= 100; x++) {
+			for (int y = -100; y <= 100; y++) {
 				newTer = (!isB) ? "testA" : "testB";
 				MG_ControlTerrain.I._createTerrain (newTer, x, y);
 				isB = !isB;
@@ -25,7 +25,7 @@ public class MGMAP_TestMap001 : MonoBehaviour {
 		#endregion
 
 		// Map bounds
-		MG_Globals.I.map_maxX = 10;
-		MG_Globals.I.map_maxY = 10;
+		MG_Globals.I.map_maxX = 100;
+		MG_Globals.I.map_maxY = 100;
 	}
 }

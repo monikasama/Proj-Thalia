@@ -26,6 +26,7 @@ public class MG_Inputs : MonoBehaviour {
 		string directionToMove = "";
 
 		bool isMoving = false;
+		#region "Movement Controls"
 		if (IS_MULTIDIRECTIONAL) {
 			// Multidirectional
 
@@ -93,6 +94,16 @@ public class MG_Inputs : MonoBehaviour {
 				MG_ControlHero.I._orderStopMoving ();
 			}
 		}
+		#endregion
+		#region "Weapon Controls"
+		if (Input.GetButton ("UseWeapon")) 						MG_HeroWeapons.I._weaponTrigger_On ();
+		else 													MG_HeroWeapons.I._weaponTrigger_Off ();
+
+		if(Input.GetButtonDown ("SwitchWeapon")){
+			if (Input.GetAxis ("SwitchWeapon") == -1)			MG_HeroWeapons.I._switchWeapon(-1);
+			else if (Input.GetAxis ("SwitchWeapon") == 1)		MG_HeroWeapons.I._switchWeapon(1);
+		}
+		#endregion
 	}
 
 	#region "Calculate Move Direction"

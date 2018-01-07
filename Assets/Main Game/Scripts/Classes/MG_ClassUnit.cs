@@ -6,6 +6,7 @@ public class MG_ClassUnit {
 
 	public GameObject sprite;
 	public string type, facing, moveType, obstacleType;
+	public float facingAngle;
 
 	public int owner;
 	public Rigidbody2D rigidBody;
@@ -13,13 +14,12 @@ public class MG_ClassUnit {
 	// MAIN STATS
 	public int HP, MP, HPmax, MPmax;
 	public float moveSpeed;
-
-	/*
-	 * 
-	 */
-
 	public float posX, posY;
 	public int id, entranceId;
+
+	// DEATH
+	public bool isDead = false;
+	public float removalTime = 25f;
 
 	////////////////// STATUS VARIABLES //////////////////
 	public string state;		// Different list of states can be seen at Documentation / MG - Unit States.txt
@@ -56,9 +56,19 @@ public class MG_ClassUnit {
 	// Only use this update to define this unit's position
 	#region "Update"
 	public void _update(){
-		posX = sprite.transform.position.x;
-		posY = sprite.transform.position.y;
-		sprite.transform.position = new Vector3(sprite.transform.position.x, sprite.transform.position.y, sprite.transform.position.y - 3);
+		// Dead update
+		if (isDead) {
+			removalTime -= Time.deltaTime;
+			if (removalTime <= 0) {
+				MG_ControlUnit.I._addToDestroyList (this);
+			}
+		}
+		// Not dead update
+		else {
+			posX = sprite.transform.position.x;
+			posY = sprite.transform.position.y;
+			sprite.transform.position = new Vector3(sprite.transform.position.x, sprite.transform.position.y, sprite.transform.position.y - 1);
+		}
 	}
 	#endregion
 
@@ -72,6 +82,7 @@ public class MG_ClassUnit {
 				moveY = moveSpeed * Mathf.Sin ((moveAngle * Mathf.PI) / 180);
 
 		rigidBody.velocity = new Vector3 (moveX, moveY);
+		facingAngle = moveAngle;
 	}
 
 	public void _stopMoving(){
@@ -79,6 +90,16 @@ public class MG_ClassUnit {
 			state = "idle";
 			rigidBody.velocity = new Vector3 (0, 0);
 		}
+	}
+	#endregion
+	#region "COMMANDS - Use Weapon/Spell"
+
+	#endregion
+
+	#region "CONTROL - Kill this unit"
+	public void _kill(){
+		isDead = true;
+		MG_ControlUnit.I._destroyGameObject (sprite);
 	}
 	#endregion
 
