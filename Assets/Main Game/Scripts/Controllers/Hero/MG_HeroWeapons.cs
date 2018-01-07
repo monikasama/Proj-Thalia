@@ -12,6 +12,8 @@ public class MG_HeroWeapons : MonoBehaviour {
 	public static MG_HeroWeapons I;
 	public void Awake(){ I = this; }
 
+	public int prof;
+
 	// Weapons
 	public string selectedWeapon;
 	public int selectedNum;
@@ -29,7 +31,7 @@ public class MG_HeroWeapons : MonoBehaviour {
 	public float recoveryTime = 0, reloadTime = 0;
 
 	public void _setupWeapons(){
-		int prof = ZPlayerPrefs.GetInt("Profile");
+		prof = ZPlayerPrefs.GetInt("Profile");
 
 		// Ammo
 		ammo_handgunA 		= PlayerPrefs.GetInt("AmmoHandgunA_" + prof.ToString ());
@@ -126,7 +128,6 @@ public class MG_HeroWeapons : MonoBehaviour {
 				reloadTime = 0;
 
 				if (selectedNum == 0) {
-					Debug.Log (ammoType + ", " + ammo_inHandgun_MAX);
 					ammo_inHandgun = ammo_inHandgun_MAX;
 
 					if (ammoType == "HandgunA") {
@@ -137,6 +138,7 @@ public class MG_HeroWeapons : MonoBehaviour {
 							ammo_inHandgun = ammo_handgunA;
 							ammo_handgunA = 0;
 						}
+						PlayerPrefs.SetInt("AmmoHandgunA_" + prof.ToString (), ammo_handgunA);
 					} else if (ammoType == "HandgunB") {
 						if (ammo_handgunB >= ammo_inHandgun_MAX) {
 							ammo_handgunB -= ammo_inHandgun_MAX;
@@ -145,8 +147,11 @@ public class MG_HeroWeapons : MonoBehaviour {
 							ammo_inHandgun = ammo_handgunB;
 							ammo_handgunB = 0;
 						}
+						PlayerPrefs.SetInt("AmmoHandgunB_" + prof.ToString (), ammo_handgunB);
 					}
+
 					MG_UI_HeroWeapons.I._updateAmmo ();
+					PlayerPrefs.SetInt("AmmoInHandgun_" + prof.ToString (), ammo_inHandgun);
 				} else if (selectedNum == 1) {
 					ammo_inRifle = ammo_inRifle_MAX;
 
@@ -158,6 +163,7 @@ public class MG_HeroWeapons : MonoBehaviour {
 							ammo_inRifle = ammo_rifleA;
 							ammo_rifleA = 0;
 						}
+						PlayerPrefs.SetInt("AmmoRifleA_" + prof.ToString (), ammo_rifleA);
 					} else if (ammoType == "RifleB") {
 						if (ammo_rifleB >= ammo_inRifle_MAX) {
 							ammo_rifleB -= ammo_inRifle_MAX;
@@ -166,8 +172,11 @@ public class MG_HeroWeapons : MonoBehaviour {
 							ammo_inRifle = ammo_rifleB;
 							ammo_rifleB = 0;
 						}
+						PlayerPrefs.SetInt("AmmoRifleB_" + prof.ToString (), ammo_rifleB);
 					}
+
 					MG_UI_HeroWeapons.I._updateAmmo ();
+					PlayerPrefs.SetInt("AmmoInRifle_" + prof.ToString (), ammo_inRifle);
 				}
 			}
 		}

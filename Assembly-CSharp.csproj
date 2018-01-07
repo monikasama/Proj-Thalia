@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Documentation &amp; Tutorials.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassBuff.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassDoodad.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassMissile.cs" />
      <Compile Include="Assets\Main Game\Scripts\Classes\MG_ClassPlayer.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Main Game\Scripts\Controllers\Get\MG_GetUnit.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\Hero\MG_ControlHero.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\Hero\MG_HeroWeapons.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlBuffs.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlCamera.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlCollision.cs" />
      <Compile Include="Assets\Main Game\Scripts\Controllers\MG_ControlDoodad.cs" />
@@ -76,6 +78,7 @@
      <Compile Include="Assets\Main Game\Scripts\Controllers\UI\MG_UI_HeroWeapons.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\Maps\MGMAP_Test.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\Maps\MGMAP_TestMap001.cs" />
+     <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Buff.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Doodad.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_DoodadValues.cs" />
      <Compile Include="Assets\Main Game\Scripts\Database\MG_DB_Maps.cs" />

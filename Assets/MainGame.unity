@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hero_newRecoveryTime: 0
+  hero_newReloadTime: 0
   auto_weaponFired: 0
 --- !u!114 &278039496
 MonoBehaviour:
@@ -2379,14 +2380,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f8468700883394da057f325be3a477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prof: 0
   selectedWeapon: 
   selectedNum: 0
   weapons: []
   auto_isAutomatic: 0
-  ammo: 0
-  ammoAll: 0
+  ammo_handgunA: 0
+  ammo_handgunB: 0
+  ammo_rifleA: 0
+  ammo_rifleB: 0
+  ammo_specialA: 0
+  ammo_specialB: 0
+  ammo_inHandgun: 0
+  ammo_inRifle: 0
+  ammo_inHandgun_MAX: 0
+  ammo_inRifle_MAX: 0
+  ammoType: 
   useWeaponPressed: 0
+  isReloading: 0
   recoveryTime: 0
+  reloadTime: 0
 --- !u!114 &1065559731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3048,6 +3061,66 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1392470672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1392470673}
+  - component: {fileID: 1392470674}
+  - component: {fileID: 1392470675}
+  m_Layer: 0
+  m_Name: _BUFF
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1392470673
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1392470672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1501104436}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1392470674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1392470672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f75606d48d8bd47a96841390276944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spr_none: {fileID: 1931367605319190, guid: 353a4a4422cd5564296deb87274dd551, type: 2}
+  spr_reloading: {fileID: 1608001687777762, guid: 3bf236249af308a44a489444efd047b9,
+    type: 2}
+  hasSprite: 0
+  spr_offsetX: 0
+  spr_offsetY: 0
+--- !u!114 &1392470675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1392470672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86f0512dc20d2a43a3a3ad154a80b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toDestroy: 
+  buffCount: 0
 --- !u!1 &1393910415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,6 +3179,7 @@ Transform:
   - {fileID: 737918332}
   - {fileID: 114892382}
   - {fileID: 1726597461}
+  - {fileID: 1466181203}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3313,6 +3387,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1453885866}
+--- !u!1 &1466181202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1466181203}
+  m_Layer: 0
+  m_Name: _MG_BUFFS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1466181203
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1466181202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1415341804}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1475598893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3610,6 +3712,7 @@ Transform:
   - {fileID: 9667598}
   - {fileID: 945501315}
   - {fileID: 1065559729}
+  - {fileID: 1392470673}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

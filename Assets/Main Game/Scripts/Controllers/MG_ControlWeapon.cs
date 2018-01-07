@@ -61,8 +61,12 @@ public class MG_ControlWeapon : MonoBehaviour {
 	public void _reloadWeapon(string reqAmmoType){
 		switch (reqAmmoType) {
 			case "inHandgun":
+				if (!MG_HeroWeapons.I._getWeaponAmmo (1, MG_HeroWeapons.I.ammoType)) return;
+
 				MG_HeroWeapons.I.reloadTime = MG_ControlWeapon.I.hero_newReloadTime;
 				MG_HeroWeapons.I.isReloading = true;
+
+				MG_ControlBuffs.I._addBuff (MG_ControlHero.I.hero.id, "Reloading", MG_HeroWeapons.I.reloadTime);
 			break;
 		}
 	}

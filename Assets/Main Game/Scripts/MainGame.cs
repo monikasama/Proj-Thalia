@@ -21,6 +21,7 @@ public class MainGame : MonoBehaviour {
 		MG_Globals.I._start();
 		MG_Inputs.I._start();
 		MG_ControlPlayer.I._setupPlayers ();
+		MG_ControlBuffs.I._start ();
 		MG_HeroWeapons.I._setupWeapons ();
 		MG_ControlWeapon.I._start ();
 		MG_ControlCollision.I._start ();
@@ -76,6 +77,11 @@ public class MainGame : MonoBehaviour {
 		for (int i = 0; i < MG_Globals.I.missiles.Count; i++) {
 			MG_Globals.I.missiles [i]._update ();
 		}
+
+		// Buffs
+		for (int i = 0; i < MG_ControlBuffs.I.buffList.Count; i++) {
+			MG_ControlBuffs.I.buffList [i]._update ();
+		}
 	}
 	#endregion
 	#region "Temp to Main List"
@@ -110,6 +116,7 @@ public class MainGame : MonoBehaviour {
 		/*Units*/					MG_ControlUnit.I._destroyListed ();
 		/*Doodads*/					MG_ControlDoodad.I._destroyListed ();
 		/*Missiles*/				MG_ControlMissile.I._destroyListed ();
+		/*Buffs*/					MG_ControlBuffs.I._destroyListed ();
 	}
 	#endregion
 }
