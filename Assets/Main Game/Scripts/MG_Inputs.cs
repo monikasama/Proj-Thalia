@@ -100,9 +100,12 @@ public class MG_Inputs : MonoBehaviour {
 		else 													MG_HeroWeapons.I._weaponTrigger_Off ();
 
 		if(Input.GetButtonDown ("SwitchWeapon")){
-			if (Input.GetAxis ("SwitchWeapon") == -1)			MG_HeroWeapons.I._switchWeapon(-1);
-			else if (Input.GetAxis ("SwitchWeapon") == 1)		MG_HeroWeapons.I._switchWeapon(1);
+			if (Input.GetAxis ("SwitchWeapon") == -1)			MG_HeroWeapons.I._switchWeapon_scrollType(-1);
+			else if (Input.GetAxis ("SwitchWeapon") == 1)		MG_HeroWeapons.I._switchWeapon_scrollType(1);
 		}
+
+		for(int i = 1; i <= 6; i++)
+			if (Input.GetButton ("Switch" + i.ToString())) 		MG_HeroWeapons.I._switchWeapon_selectType (i-1);
 		#endregion
 	}
 

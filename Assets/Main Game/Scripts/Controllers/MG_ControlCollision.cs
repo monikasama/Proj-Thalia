@@ -23,7 +23,7 @@ public class MG_ControlCollision : MonoBehaviour {
 	// the colliding component is passed to a _collisionHandler function,
 	// depending on what the tags between the gameObjets are
 	#region "Collision Handler"
-	public void _collisionHandler(GameObject hitter, GameObject hitted){ 
+	public void _collisionHandler(GameObject hitter, GameObject hitted){
 		if(debug) Debug.Log ("Handling collision...");
 		// Check if this collision is already handled for this frame
 		bool isHandled = false;
@@ -37,12 +37,24 @@ public class MG_ControlCollision : MonoBehaviour {
 		if(debug) Debug.Log("This collision is not yet handled, checking collision properties...");
 		if(debug) Debug.Log ("hitter's tag is =" + hitter.tag + ", hitted's tag is =" + hitted.tag);
 		if (isHandled)		return;
-
 		// Check the tags
-		if(hitter.tag == "Unit" && hitted.tag == "Unit")					_collisionHandler_UnitToUnit(hitter, hitted);
-		else if((hitter.tag == "Missile" || hitter.tag == "Unit") && (hitted.tag == "Unit" || hitted.tag == "Missile"))			
-			_collisionHandler_UnitToMissile(hitter, hitted);
-		else if(hitter.tag == "Missile" && hitted.tag == "Missile")			_collisionHandler_MissileToMissile(hitter, hitted);
+		// Unit to Unit
+
+		if (hitter.tag == "Unit" && hitted.tag == "Unit")
+			_collisionHandler_UnitToUnit (hitter, hitted);
+		// Unit to Missile
+		else if (hitter.tag == "Missile" && hitted.tag == "Unit")
+			_collisionHandler_UnitToMissile (hitted, hitter);
+		else if (hitter.tag == "Unit" && hitted.tag == "Missile")
+			_collisionHandler_UnitToMissile (hitter, hitted);
+		// Missile to Missile
+		else if (hitter.tag == "Missile" && hitted.tag == "Missile")
+			_collisionHandler_MissileToMissile (hitter, hitted);
+		// Missile to Terrain
+		else if (hitter.tag == "Missile" && hitted.tag == "Terrain") 
+			_collisionHandler_MissileToTerrain (hitter, hitted);
+		else if (hitter.tag == "Terrain" && hitted.tag == "Missile")
+			_collisionHandler_MissileToTerrain (hitted, hitter);
 	}
 
 	public void _collisionHandler_UnitToUnit(GameObject hitterObj, GameObject hittedObj){
@@ -70,7 +82,7 @@ public class MG_ControlCollision : MonoBehaviour {
 		if(debug) Debug.Log ("Collision between units success!");
 	}
 
-	public void _collisionHandler_UnitToMissile(GameObject unitObj, GameObject missileObj){ 
+	public void _collisionHandler_UnitToMissile(GameObject unitObj, GameObject missileObj){
 		// Check the MG_ClassUnit owner of the GameObjects
 		MG_ClassUnit unit = MG_Globals.I.units[0]; 				bool hasUnit = false;
 		MG_ClassMissile missile = MG_Globals.I.missiles[0]; 	bool hasMissile = false;
@@ -128,6 +140,32 @@ public class MG_ControlCollision : MonoBehaviour {
 
 		if(debug) Debug.Log ("Collision between missiles success!");
 	}
+
+	public void _collisionHandler_MissileToTerrain(GameObject missileObj, GameObject terrainObj){
+		// Check the MG_ClassUnit owner of the GameObjects
+		MG_ClassMissile missile = MG_Globals.I.missiles[0]; bool hasMissile = false, collidesToWalls = false;
+		foreach(MG_ClassMissile cL in MG_Globals.I.missiles){
+			if (cL.sprite == missileObj) {
+				collidesToWalls = cL.collideToWalls;
+				if (!collidesToWalls)
+					break;
+
+				missile = cL; hasMissile = true;
+				break;
+			}
+		}
+		if (!collidesToWalls) 	return;
+
+		// If one of the class does not exist, cancel the collision
+		if (!hasMissile)		return;
+
+		// Mark this collision as already handled
+		string[] hC = new string[]{missileObj.name, terrainObj.name};
+		handledCollisions.Add(hC);
+
+		if(debug) Debug.Log ("Collision between missile and terrain success!");
+		_collisionEvent_MissileToTerrain (missile, terrainObj);
+	}
 	#endregion
 
 	// After being passed through to determine the collision's properties,
@@ -157,6 +195,14 @@ public class MG_ControlCollision : MonoBehaviour {
 
 	public void _collisionEvent_MissileToMissile(MG_ClassMissile hitter, MG_ClassMissile hitted){
 		
+	}
+
+	public void _collisionEvent_MissileToTerrain(MG_ClassMissile missile, GameObject terrain){
+		switch (missile.type) {
+			case "test":
+				MG_ControlMissile.I._addToDestroyList (missile);
+			break;
+		}
 	}
 	#endregion
 

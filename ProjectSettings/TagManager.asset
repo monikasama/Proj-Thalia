@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Unit
   - Missile
+  - Terrain
   layers:
   - Default
   - TransparentFX

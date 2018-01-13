@@ -2143,6 +2143,7 @@ MonoBehaviour:
   obstacleType: 
   nature: 
   speed: 0
+  collideToWalls: 0
 --- !u!114 &945501317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4070,7 +4071,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1647366279}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4837,7 +4838,7 @@ Canvas:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2084261226}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

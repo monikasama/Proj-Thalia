@@ -88,8 +88,8 @@ public class MG_HeroWeapons : MonoBehaviour {
 	#endregion
 
 	#region "Switch Weapon"
-	// Switch currently holding weapon
-	public void _switchWeapon(int increment){
+	// Switch currently holding weapon with A and S key
+	public void _switchWeapon_scrollType(int increment){
 		if (reloadTime > 0) return;
 
 		selectedNum += increment;
@@ -111,6 +111,30 @@ public class MG_HeroWeapons : MonoBehaviour {
 			if (ammo_inRifle <= 0)
 				if ((ammoType == "RifleA" && ammo_rifleA > 0) || (ammoType == "RifleB" && ammo_rifleB > 0))
 					MG_ControlWeapon.I._reloadWeapon (ammoType);
+		}
+		#endregion
+	}
+
+	public void _switchWeapon_selectType(int selection){
+		if (reloadTime > 0) return;
+
+		selectedNum = selection;
+
+		selectedWeapon = weapons[selectedNum];
+		MG_DB_Weapons.I._switchWeapon (selectedWeapon);
+		PlayerPrefs.SetInt ("WeaponSelected", selectedNum);
+
+		MG_UI_HeroWeapons.I._changeEquippedWeapon (selectedNum);
+
+		#region "Auto-reload"
+		if (selectedNum == 0) {
+			if (ammo_inHandgun <= 0)
+			if ((ammoType == "HandgunA" && ammo_handgunA > 0) || (ammoType == "HandgunB" && ammo_handgunB > 0))
+				MG_ControlWeapon.I._reloadWeapon (ammoType);
+		} else if (selectedNum == 1) {
+			if (ammo_inRifle <= 0)
+			if ((ammoType == "RifleA" && ammo_rifleA > 0) || (ammoType == "RifleB" && ammo_rifleB > 0))
+				MG_ControlWeapon.I._reloadWeapon (ammoType);
 		}
 		#endregion
 	}

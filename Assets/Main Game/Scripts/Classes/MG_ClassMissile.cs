@@ -11,6 +11,8 @@ public class MG_ClassMissile {
 	public string type;
 	public int id, ownerID, playerOwner;
 
+	public bool collideToWalls;
+
 	public MG_ClassMissile(GameObject newSprite, string newType, int newID, float newPosX, float newPosY, int newOwnerID, float newAngle){
 		sprite = newSprite;
 		sprite.transform.position = new Vector3 (newPosX, newPosY, newPosY - 4);
@@ -48,6 +50,7 @@ public class MG_ClassMissile {
 		// Default values
 		MG_DB_MissileValue.I._setValues(newType);
 		speed 								= MG_DB_MissileValue.I.speed;
+		collideToWalls 						= MG_DB_MissileValue.I.collideToWalls;
 	}
 
 	// Includes

@@ -8,11 +8,17 @@ public class MG_DB_MissileValue : MonoBehaviour {
 
 	public string obstacleType, nature;
 	public float speed;
+	public bool collideToWalls;
 
 	public void _setValues(string newUnitType){
 		switch (newUnitType) {
 			case "test":
-				speed 								= 20f;
+				speed 							= 20f;
+				collideToWalls 					= true;
+			break;
+			default:
+				speed 							= 20f;
+				collideToWalls 					= false;
 			break;
 		}
 	}
