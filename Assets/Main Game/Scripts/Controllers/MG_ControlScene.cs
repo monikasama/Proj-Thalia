@@ -53,7 +53,7 @@ public class MG_ControlScene : MonoBehaviour {
 			return nullVal;
 		}
 
-		int prof = ZPlayerPrefs.GetInt("Profile");
+		int prof = MG_Globals.I.prof;
 
 		string curMap = MG_Globals.I.curMap;
 		string[] nextMap = new string[2];

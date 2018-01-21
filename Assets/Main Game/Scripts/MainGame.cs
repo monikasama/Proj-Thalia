@@ -26,6 +26,8 @@ public class MainGame : MonoBehaviour {
 		MG_ControlWeapon.I._start ();
 		MG_ControlCollision.I._start ();
 		/*UI*/MG_UI_HeroWeapons.I._start ();
+		/*UI - hero HP bar UI*/MG_UI_HeroBars.I._start ();
+		/*UI - dialog*/MG_UI_Dialog.I._start ();
 
 		// Create the map
 		MG_DB_Maps.I._createMap(PlayerPrefs.GetString("NextMap"));
@@ -37,6 +39,9 @@ public class MainGame : MonoBehaviour {
 		MG_ControlHero.I._start();						// Also spawns the hero
 
 		MG_ControlUnit.I._createUnit ("testEnemy", 0, -4, 2);
+
+		MG_DB_Dialog.I._setupDialogText (1);
+		MG_UI_Dialog.I._initDialog (1);
 	}
 
 	private void _createBorders(){
@@ -64,6 +69,9 @@ public class MainGame : MonoBehaviour {
 		/*Destroy update*/							_destroyUpdate();
 		/*Clear collisions*/						MG_ControlCollision.I._clearHandledCollisions ();
 		/*Reload update*/							MG_HeroWeapons.I._reloadUpdate ();
+		/*Update hero HP bar UI*/					MG_UI_HeroBars.I._update ();
+		/*Dialog update*/							MG_UI_Dialog.I._drawDialogFrame ();
+		/*Dialog input*/							MG_UI_Dialog.I._pressConfirm ();
 	}
 
 	#region "Update Objects"

@@ -1,20 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Main Game\Scripts\Controllers\MG_ControlWeapon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Main Game\Scripts\Database\MG_DB_Dialog.cs">
     <Files>
-      <File FileName="Assets\Main Game\Scripts\MainGame.cs" Line="84" Column="4" />
-      <File FileName="Assets\Main Game\Scripts\Controllers\MG_ControlBuffs.cs" Line="35" Column="2" />
-      <File FileName="Assets\Main Game\Scripts\Classes\MG_ClassBuff.cs" Line="61" Column="52" />
-      <File FileName="Assets\Main Game\Scripts\Classes\MG_ClassDoodad.cs" Line="1" Column="1" />
-      <File FileName="Assets\Main Game\Scripts\Classes\MG_ClassUnit.cs" Line="43" Column="3" />
-      <File FileName="Assets\Main Game\Scripts\Controllers\MG_ControlUnit.cs" Line="18" Column="73" />
-      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Doodad.cs" Line="15" Column="2" />
-      <File FileName="Assets\Main Game\Scripts\Controllers\Hero\MG_HeroWeapons.cs" Line="154" Column="78" />
-      <File FileName="Assets\Main Game\Scripts\Controllers\MG_ControlWeapon.cs" Line="54" Column="34" />
-      <File FileName="Assets\Main Game\Scripts\Controllers\Hero\MG_ControlHero.cs" Line="37" Column="33" />
-      <File FileName="Assets\Main Menu\Scripts\SetPlayerPrefs.cs" Line="41" Column="57" />
-      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Buff.cs" Line="27" Column="20" />
-      <File FileName="Assets\Main Game\Scripts\Controllers\Get\MG_GetUnit.cs" Line="39" Column="49" />
+      <File FileName="Assets\Main Game\Scripts\MainGame.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\UI\MG_UI_HeroBars.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Dialog.cs" Line="53" Column="10" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\UI\MG_UI_Dialog.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Buff.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\Database\MG_DB_Doodad.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\MG_Globals.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\Hero\MG_ControlHero.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

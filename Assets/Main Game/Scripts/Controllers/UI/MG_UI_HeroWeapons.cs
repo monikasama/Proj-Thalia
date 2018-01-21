@@ -7,6 +7,8 @@ public class MG_UI_HeroWeapons : MonoBehaviour {
 	public static MG_UI_HeroWeapons I;
 	public void Awake(){ I = this; }
 
+	public Canvas canvas;
+
 	public List<Image> img_weapIcon, img_weapIcon_Border;
 	public Text txt_weapName, txt_weapAmmo;
 	public int selectedNum;
@@ -15,6 +17,7 @@ public class MG_UI_HeroWeapons : MonoBehaviour {
 	public Sprite borderSelected, borderNotSelected;
 
 	public void _start(){
+		canvas 									= GameObject.Find ("C_ItemBelt").GetComponent<Canvas> ();
 		img_weapIcon 							= new List<Image> ();
 		img_weapIcon_Border 					= new List<Image> ();
 		str_weapName 							= new List<string> ();

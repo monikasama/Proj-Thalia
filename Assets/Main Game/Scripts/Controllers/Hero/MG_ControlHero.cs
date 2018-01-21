@@ -35,6 +35,7 @@ public class MG_ControlHero : MonoBehaviour {
 		/////// Misc ////////
 		// Set the hero's gameobject name to MainHero
 		hero.sprite.name = "MainHero";
+		MG_CalcDamage.I._damageUnit (hero, hero, 5);		// TEST
 	}
 
 	// Controls

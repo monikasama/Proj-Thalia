@@ -12,7 +12,7 @@ public class MG_ControlWeapon : MonoBehaviour {
 	public bool auto_weaponFired;
 
 	public void _start(){
-		prof = ZPlayerPrefs.GetInt("Profile");
+		prof = MG_Globals.I.prof;
 	}
 
 	public void _useWeapon(MG_ClassUnit user, string weaponType){

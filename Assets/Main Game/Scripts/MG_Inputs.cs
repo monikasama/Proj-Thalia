@@ -22,6 +22,13 @@ public class MG_Inputs : MonoBehaviour {
 	/// Called from OverworldMain.cs -> Update()
 	/// </summary>
 	public void _checkPress(){
+		// In dialog
+		if (MG_UI_Dialog.I.isOnDialog) 						_controls_dialog ();
+		// In game
+		else 												_controls_inGame ();
+	}
+
+	private void _controls_inGame(){
 		// Directional movement keys
 		string directionToMove = "";
 
@@ -66,7 +73,7 @@ public class MG_Inputs : MonoBehaviour {
 				MG_ControlHero.I._orderMoveHero (directionToMove);
 		} else {
 			// Non-multidirectional
-			
+
 			if (Input.GetAxis ("Horizontal") == -1) {
 				_calculateMoveDirection ("Left");
 				isMoving = true;
@@ -107,6 +114,10 @@ public class MG_Inputs : MonoBehaviour {
 		for(int i = 1; i <= 6; i++)
 			if (Input.GetButton ("Switch" + i.ToString())) 		MG_HeroWeapons.I._switchWeapon_selectType (i-1);
 		#endregion
+	}
+
+	private void _controls_dialog(){
+		if (Input.GetButtonDown ("UseWeapon")) 					MG_UI_Dialog.I._BTN_confirm();
 	}
 
 	#region "Calculate Move Direction"

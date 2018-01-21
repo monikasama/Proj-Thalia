@@ -17,6 +17,7 @@ public class MG_Globals : MonoBehaviour {
 	// Map data
 	public int map_maxX, map_maxY;
 	public string curMap;
+	public int prof;
 
 	public void _start(){
 		// Initialize lists
@@ -32,6 +33,6 @@ public class MG_Globals : MonoBehaviour {
 		players 							= new List<MG_ClassPlayer> ();	// Setted-up at MG_ControlPlayer.cs
 
 		// Variables
-
+		prof 								= ZPlayerPrefs.GetInt("Profile");
 	}
 }

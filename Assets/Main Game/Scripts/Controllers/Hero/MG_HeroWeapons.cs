@@ -31,7 +31,7 @@ public class MG_HeroWeapons : MonoBehaviour {
 	public float recoveryTime = 0, reloadTime = 0;
 
 	public void _setupWeapons(){
-		prof = ZPlayerPrefs.GetInt("Profile");
+		prof = MG_Globals.I.prof;
 
 		// Ammo
 		ammo_handgunA 		= PlayerPrefs.GetInt("AmmoHandgunA_" + prof.ToString ());
