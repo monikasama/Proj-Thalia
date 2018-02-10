@@ -12,7 +12,7 @@ public class O_ControlHero : MonoBehaviour {
 	public O_ClassUnit hero;
 
 	public void _start(){
-		int prof = MG_Globals.I.prof;
+		int prof = O_Globals.I.prof;
 
 		int posX = PlayerPrefs.GetInt ("O_LastX_" + prof.ToString ()),
 			posY = PlayerPrefs.GetInt ("O_LastY_" + prof.ToString ());

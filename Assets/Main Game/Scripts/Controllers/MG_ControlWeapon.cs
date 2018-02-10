@@ -19,10 +19,16 @@ public class MG_ControlWeapon : MonoBehaviour {
 		switch (weaponType) {
 			#region "Hero Weapons"
 			case "testWeapon":
-				if(!_getPlayerHasEnoughAmmo(1, "inHandgun"))	return;		// Ammo check
+				string ammoType = "inHandgun";
+
+				// Ammo check
+				if(!_getPlayerHasEnoughAmmo(1, ammoType)){
+					_reloadWeapon(ammoType);
+					return;
+				}
 
 				MG_ControlMissile.I._createMissile ("test", MG_ControlHero.I.hero.posX, MG_ControlHero.I.hero.posY, MG_ControlHero.I.hero.id, MG_ControlHero.I.hero.facingAngle);
-				_reduceAmmo(1, "inHandgun");	// Ammo reduction
+				_reduceAmmo(1, ammoType);	// Ammo reduction
 			break;
 			#endregion
 		}

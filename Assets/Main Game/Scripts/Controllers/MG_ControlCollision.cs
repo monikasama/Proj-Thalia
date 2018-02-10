@@ -22,6 +22,10 @@ public class MG_ControlCollision : MonoBehaviour {
 	// the gameObject owner of the component and the gameObject of
 	// the colliding component is passed to a _collisionHandler function,
 	// depending on what the tags between the gameObjets are
+
+	// Note that when missile hits a terrain/doodad, this 
+	// will only take in the terrain/doodad's gameobject and should
+	// not be moved, only use it to get the terrain/doodad's position or something
 	#region "Collision Handler"
 	public void _collisionHandler(GameObject hitter, GameObject hitted){
 		if(debug) Debug.Log ("Handling collision...");
@@ -55,6 +59,11 @@ public class MG_ControlCollision : MonoBehaviour {
 			_collisionHandler_MissileToTerrain (hitter, hitted);
 		else if (hitter.tag == "Terrain" && hitted.tag == "Missile")
 			_collisionHandler_MissileToTerrain (hitted, hitter);
+		// Missile to Doodad
+		else if (hitter.tag == "Missile" && hitted.tag == "Doodad") 
+			_collisionHandler_MissileToDoodad (hitter, hitted);
+		else if (hitter.tag == "Doodad" && hitted.tag == "Missile")
+			_collisionHandler_MissileToDoodad (hitted, hitter);
 	}
 
 	public void _collisionHandler_UnitToUnit(GameObject hitterObj, GameObject hittedObj){
@@ -165,6 +174,32 @@ public class MG_ControlCollision : MonoBehaviour {
 
 		if(debug) Debug.Log ("Collision between missile and terrain success!");
 		_collisionEvent_MissileToTerrain (missile, terrainObj);
+	}
+
+	public void _collisionHandler_MissileToDoodad(GameObject missileObj, GameObject doodadObj){
+		// Check the MG_ClassUnit owner of the GameObjects
+		MG_ClassMissile missile = MG_Globals.I.missiles[0]; bool hasMissile = false, collidesToWalls = false;
+		foreach(MG_ClassMissile cL in MG_Globals.I.missiles){
+			if (cL.sprite == missileObj) {
+				collidesToWalls = cL.collideToWalls;
+				if (!collidesToWalls)
+					break;
+
+				missile = cL; hasMissile = true;
+				break;
+			}
+		}
+		if (!collidesToWalls) 	return;
+
+		// If one of the class does not exist, cancel the collision
+		if (!hasMissile)		return;
+
+		// Mark this collision as already handled
+		string[] hC = new string[]{missileObj.name, doodadObj.name};
+		handledCollisions.Add(hC);
+
+		if(debug) Debug.Log ("Collision between missile and doodad success!");
+		_collisionEvent_MissileToTerrain (missile, doodadObj);
 	}
 	#endregion
 

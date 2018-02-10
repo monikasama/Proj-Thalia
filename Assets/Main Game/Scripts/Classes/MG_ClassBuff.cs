@@ -62,7 +62,6 @@ public class MG_ClassBuff {
 		if (uOwner == null) 		return;
 		if (uOwner.sprite == null) 	return;
 
-		Debug.Log (uOwner.sprite.transform.position);
 		sprite.transform.position = new Vector3 (	uOwner.sprite.transform.position.x + spr_offsetX, 
 													uOwner.sprite.transform.position.y + spr_offsetY,
 													uOwner.sprite.transform.position.z + spr_offsetY - 2);

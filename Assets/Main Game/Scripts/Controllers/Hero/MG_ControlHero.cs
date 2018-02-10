@@ -10,9 +10,9 @@ public class MG_ControlHero : MonoBehaviour {
 
 	public void _start(){
 		// Get Profile and entrance to be used
-		int prof = ZPlayerPrefs.GetInt("Profile"),
-			entranceUsed = PlayerPrefs.GetInt("EntranceUsed");
-		MG_ClassUnit entrance = MG_Globals.I.unitsTemp[0];
+		int prof = ZPlayerPrefs.GetInt ("Profile"),
+		entranceUsed = PlayerPrefs.GetInt ("EntranceUsed");
+		MG_ClassUnit entrance = MG_Globals.I.unitsTemp [0];
 		foreach (MG_ClassUnit uL in MG_Globals.I.unitsTemp) {
 			if (uL.type == "entrance" && uL.entranceId == entranceUsed) {
 				entrance = uL;
@@ -24,9 +24,9 @@ public class MG_ControlHero : MonoBehaviour {
 
 		/////////////////////// PLAYER SPAWN /////////////////////////////////
 		MG_ControlUnit.I._createUnit ("testYou", posX, posY, 1);
-		hero = MG_GetUnit.I._getLastCreatedUnit();
-		hero.facing = PlayerPrefs.GetString("PlayerFacing");
-		MG_ControlCamera.I._reposition(hero.sprite.transform.position.x, hero.sprite.transform.position.y);
+		hero = MG_GetUnit.I._getLastCreatedUnit ();
+		hero.facing = PlayerPrefs.GetString ("PlayerFacing");
+		MG_ControlCamera.I._reposition (hero.sprite.transform.position.x, hero.sprite.transform.position.y);
 		/////////////////////// PLAYER SPAWN /////////////////////////////////
 
 		// Hero stats
@@ -35,7 +35,12 @@ public class MG_ControlHero : MonoBehaviour {
 		/////// Misc ////////
 		// Set the hero's gameobject name to MainHero
 		hero.sprite.name = "MainHero";
-		MG_CalcDamage.I._damageUnit (hero, hero, 5);		// TEST
+		// Reload weapon if ammo is 0
+		if (MG_HeroWeapons.I.selectedNum == 0 || MG_HeroWeapons.I.selectedNum == 1){
+			if (!MG_ControlWeapon.I._getPlayerHasEnoughAmmo (1, MG_HeroWeapons.I.selectedWeapon)) {
+				MG_ControlWeapon.I._reloadWeapon (MG_HeroWeapons.I.selectedWeapon);
+			}
+		}
 	}
 
 	// Controls

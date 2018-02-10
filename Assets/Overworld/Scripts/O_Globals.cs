@@ -13,6 +13,8 @@ public class O_Globals : MonoBehaviour {
 	// Map data
 	public int map_maxX, map_maxY;
 	public string curMap;
+
+	public int prof;
 	
 	public void _start(){
 		// Initialize lists
@@ -24,6 +26,6 @@ public class O_Globals : MonoBehaviour {
 		doodadsTemp							= new List<O_ClassDoodad> ();
 
 		// Variables
-
+		prof								= ZPlayerPrefs.GetInt("Profile");
 	}
 }

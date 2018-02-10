@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4761489320713446}
   - component: {fileID: 212846965941010380}
   - component: {fileID: 61375303300754004}
+  - component: {fileID: 61844119894366802}
   m_Layer: 0
   m_Name: mg_cliffCorner1
-  m_TagString: Untagged
+  m_TagString: Doodad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1275610987058736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 214.05, y: 277.019, z: 0}
+  m_LocalPosition: {x: 182.21976, y: 22.683174, z: 0}
   m_LocalScale: {x: 3.19, y: 3.19, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,6 +52,31 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11703859, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.085922815, y: 0.32}
+  m_EdgeRadius: 0
+--- !u!61 &61844119894366802
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275610987058736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.11703859, y: 0}

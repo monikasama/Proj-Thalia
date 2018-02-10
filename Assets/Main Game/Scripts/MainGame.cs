@@ -65,7 +65,7 @@ public class MainGame : MonoBehaviour {
 		/*Check input*/								MG_Inputs.I._checkPress();
 		/*Move hero*/								MG_ControlHero.I._moveHero();
 		/*Temp to main list*/						_tempToMainList();
-		/*Update objects (position, etc...)*/		_updateObjects ();		
+		/*Update objects (position, etc...)*/		_updateObjects ();
 		/*Destroy update*/							_destroyUpdate();
 		/*Clear collisions*/						MG_ControlCollision.I._clearHandledCollisions ();
 		/*Reload update*/							MG_HeroWeapons.I._reloadUpdate ();

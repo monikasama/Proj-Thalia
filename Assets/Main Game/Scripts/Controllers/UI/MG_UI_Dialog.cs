@@ -35,7 +35,7 @@ public class MG_UI_Dialog : MonoBehaviour {
 
 		// Variables
 		curDialog = 1;
-		delayTxtLimit = 1; //3
+		delayTxtLimit = 3; //3
 		frameDelay_Max = 15;
 		curTxt = 0;
 
@@ -160,6 +160,9 @@ public class MG_UI_Dialog : MonoBehaviour {
 					}
 				}
 			}
+
+			isPressConfirm = false;
+			frameDelay = frameDelay_Max;
 		}
 	}
 
