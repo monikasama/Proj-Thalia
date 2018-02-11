@@ -141,13 +141,15 @@ public class MG_ControlCollision : MonoBehaviour {
 		}
 
 		// If one of the class does not exist, cancel the collision
-		if (!hasHitter || !hasHitted)		return;
+		if (!hasHitter || !hasHitted)										return;
+		if (!(hitted.mB_blockMissile || hitter.mB_blockMissile))			return;		// Missile block condition check
 
 		// Mark this collision as already handled
 		string[] hC = new string[]{hitterObj.name, hittedObj.name};
 		handledCollisions.Add(hC);
 
 		if(debug) Debug.Log ("Collision between missiles success!");
+		_collisionEvent_MissileToMissile (hitter, hitted);
 	}
 
 	public void _collisionHandler_MissileToTerrain(GameObject missileObj, GameObject terrainObj){
@@ -229,7 +231,26 @@ public class MG_ControlCollision : MonoBehaviour {
 	}
 
 	public void _collisionEvent_MissileToMissile(MG_ClassMissile hitter, MG_ClassMissile hitted){
-		
+		switch (hitter.type) {
+			// Classic missile-to-missile collision
+			default:
+				bool isHit = false;
+				if (MG_ControlPlayer.I._getIsEnemy (hitter.playerOwner, hitted.playerOwner)) {
+					isHit = _collisionCondition_MissileToMissile_Enemies (hitter, hitted);
+				}
+
+				if (isHit) {
+					if (hitter.mB_blockValue > hitted.mB_blockValue) {
+						MG_ControlMissile.I._addToDestroyList (hitted);
+					} else if (hitter.mB_blockValue < hitted.mB_blockValue) {
+						MG_ControlMissile.I._addToDestroyList (hitter);
+					} else {
+						MG_ControlMissile.I._addToDestroyList (hitted);
+						MG_ControlMissile.I._addToDestroyList (hitter);
+					}
+				}
+			break;
+		}
 	}
 
 	public void _collisionEvent_MissileToTerrain(MG_ClassMissile missile, GameObject terrain){
@@ -250,6 +271,15 @@ public class MG_ControlCollision : MonoBehaviour {
 
 		// Confirm the existence of missile's owner
 		if(!MG_GetUnit.I._doesUnitExist(missile.ownerID))			return false;
+
+		return retVal;
+	}
+
+	/// <summary>
+	/// Returns true if collision can occur.
+	/// </summary>
+	public bool _collisionCondition_MissileToMissile_Enemies(MG_ClassMissile hitter, MG_ClassMissile hitted){
+		bool retVal = true;
 
 		return retVal;
 	}

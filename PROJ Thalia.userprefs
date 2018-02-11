@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Main Game\Scripts\Controllers\UI\MG_UI_HeroBars.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Main Game\Scripts\MainGame.cs">
     <Files>
-      <File FileName="Assets\Overworld\Scripts\Controllers\O_ControlHero.cs" Line="15" Column="15" />
-      <File FileName="Assets\Overworld\Scripts\O_Globals.cs" Line="18" Column="2" />
-      <File FileName="Assets\Main Game\Scripts\Controllers\UI\MG_UI_HeroBars.cs" Line="23" Column="3" />
+      <File FileName="Assets\Overworld\Scripts\Controllers\O_ControlHero.cs" Line="1" Column="1" />
+      <File FileName="Assets\Overworld\Scripts\O_Globals.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\Controllers\UI\MG_UI_HeroBars.cs" Line="1" Column="1" />
+      <File FileName="Assets\Main Game\Scripts\MainGame.cs" Line="70" Column="74" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
